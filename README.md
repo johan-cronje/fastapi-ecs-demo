@@ -3,12 +3,7 @@
 ## Prerequisites
 
 > [!NOTE]
-> The **fastapi-demo** repository has to exist in Amazon Elastic Container Registry (ECR) in your AWS account
-
-> [!NOTE]
-> You will need to create a self-signed SSL certificate and import it into AWS Certificate Manager (ACM)
-
-The SSL certificate can be generated as in this example [Create and sign an X509 certificate](arn:aws:acm:us-west-2:062093085565:certificate/8484b721-fdf0-41d6-812c-281fbfbdaad0) and then imported into ACM
+> The **fastapi-app** repository has to exist in Amazon Elastic Container Registry (ECR) in your AWS account
 
 ## Build and publish the Docker image
 
