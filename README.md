@@ -5,6 +5,12 @@
 2. Terraform installed
 3. Docker installed to test, build and push images
 
+## Architecture
+
+### Terraform Network Resource Diagram
+![Terraform Network Resource Diagram](/assets/terraform-ecs-networking.png)
+
+
 > [!NOTE]
 > The **fastapi-app** repository has to exist in Amazon Elastic Container Registry (ECR) in your AWS account
 
