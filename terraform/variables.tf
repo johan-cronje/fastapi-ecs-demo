@@ -2,7 +2,7 @@
 
 variable "region" {
   description = "The AWS region to create resources in."
-  default     = "us-west-1"
+  default     = "us-west-2"
 }
 
 
@@ -27,7 +27,7 @@ variable "private_subnet_2_cidr" {
 variable "availability_zones" {
   description = "Availability zones"
   type        = list(string)
-  default     = ["us-west-1b", "us-west-1c"]
+  default     = ["us-west-2b", "us-west-2c"]
 }
 
 
@@ -35,7 +35,7 @@ variable "availability_zones" {
 
 variable "health_check_path" {
   description = "Health check path for the default target group"
-  default     = "/ping/"
+  default     = "/ping"
 }
 
 
@@ -46,9 +46,9 @@ variable "ecs_cluster_name" {
   default     = "demo"
 }
 
-variable "docker_image_url_django" {
+variable "docker_image_url_fastapi" {
   description = "Docker image to run in the ECS cluster"
-  default     = "<AWS_ACCOUNT_ID>.dkr.ecr.us-west-1.amazonaws.com/django-app:latest"
+  default     = "<AWS_ACCOUNT_ID>.dkr.ecr.us-west-2.amazonaws.com/fastapi-app:latest"
 }
 
 variable "app_count" {
@@ -65,12 +65,6 @@ variable "fargate_memory" {
   description = "Amount of memory for Fargate task. E.g., '512' (0.5GB)"
   default     = "512"
 }
-
-variable "allowed_hosts" {
-  description = "Domain name for allowed hosts"
-  default     = "YOUR DOMAIN NAME"
-}
-
 
 # logs
 
@@ -95,38 +89,3 @@ variable "autoscale_desired" {
   description = "Desired number of tasks to run initially"
   default     = "4"
 }
-
-
-# rds
-
-# variable "rds_db_name" {
-#   description = "RDS database name"
-#   default     = "mydb"
-# }
-# variable "rds_username" {
-#   description = "RDS database username"
-#   default     = "foo"
-# }
-# variable "rds_password" {
-#   description = "RDS database password"
-# }
-# variable "rds_instance_class" {
-#   description = "RDS instance type"
-#   default     = "db.t3.micro"
-# }
-
-
-# domain
-
-# variable "certificate_arn" {
-#   description = "AWS Certificate Manager ARN for validated domain"
-#   default     = "YOUR ARN"
-# }
-
-
-# nginx
-
-# variable "docker_image_url_nginx" {
-#   description = "Docker image to run in the ECS cluster"
-#   default     = "<AWS_ACCOUNT_ID>.dkr.ecr.us-west-1.amazonaws.com/nginx:latest"
-# }
