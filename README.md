@@ -1,15 +1,17 @@
 # fastapi-ecs-demo
 
-## Prerequisites
-1. You have the AWS CLI installed and are able to execute commands, e.g. `aws s3 ls`
-2. Terraform installed
-3. Docker installed to test, build and push images
-
 ## Architecture
+
+### Application Overview Diagram
+![Application Overview Diagram](/assets/terraform-ecs-overview.png)
 
 ### Terraform Network Resource Diagram
 ![Terraform Network Resource Diagram](/assets/terraform-ecs-networking.png)
 
+## Prerequisites
+1. You have the AWS CLI installed and are able to execute commands, e.g. `aws s3 ls`
+2. Terraform installed
+3. Docker installed to test, build and push images
 
 > [!NOTE]
 > The **fastapi-app** repository has to exist in Amazon Elastic Container Registry (ECR) in your AWS account

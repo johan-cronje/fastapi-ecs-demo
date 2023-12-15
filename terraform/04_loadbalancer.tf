@@ -7,6 +7,19 @@ resource "aws_lb" "demo" {
   subnets            = [aws_subnet.public-1.id, aws_subnet.public-2.id]
 }
 
+# Listener (redirects traffic from the load balancer to the target group)
+resource "aws_alb_listener" "ecs-alb-http-listener" {
+  load_balancer_arn = aws_lb.demo.id
+  port              = "80"
+  protocol          = "HTTP"
+  depends_on        = [aws_alb_target_group.default-target-group]
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.default-target-group.arn
+  }
+}
+
 # Target group for ECS Fargate
 resource "aws_alb_target_group" "default-target-group" {
   name     = "${var.ecs_cluster_name}-tg"
@@ -23,18 +36,5 @@ resource "aws_alb_target_group" "default-target-group" {
     timeout             = 2
     interval            = 5
     matcher             = "200"
-  }
-}
-
-# Listener (redirects traffic from the load balancer to the target group)
-resource "aws_alb_listener" "ecs-alb-http-listener" {
-  load_balancer_arn = aws_lb.demo.id
-  port              = "80"
-  protocol          = "HTTP"
-  depends_on        = [aws_alb_target_group.default-target-group]
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_alb_target_group.default-target-group.arn
   }
 }

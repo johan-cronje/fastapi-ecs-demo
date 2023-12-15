@@ -37,7 +37,7 @@ resource "aws_route_table" "private-route-table" {
   vpc_id = aws_vpc.demo-vpc.id
 }
 
-# Associate the newly created route tables to the subnets
+# Associate the route tables above with the subnets
 resource "aws_route_table_association" "public-route-1-association" {
   route_table_id = aws_route_table.public-route-table.id
   subnet_id      = aws_subnet.public-1.id
